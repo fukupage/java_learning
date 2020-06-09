@@ -1,43 +1,30 @@
 class User {
-  String name;
+  private String name;
+  private int score;
 
-  User(String name) {
+  public User(String name, int score) {
     this.name = name;
+    this.score = score;
   }
 
-  User() {
-    this("あれれ！");
+  public int getScore(){ //getter
+    return this.score;
   }
 
-  void sayHi() {
-    System.out.println("はいはぁーーい！" + this.name + "さん、おつかれっすーー！");
+  public void setScore(int score){ //setter
+    if(score > 0){
+      this.score = score;
+    }
   }
 }
 
-class AdminUser extends User {
-  AdminUser(String name){
-    super(name);
-  }
-  void sayHello(){
-    System.out.println("管理人の" + this.name + "さん、ちわーっす！");
-  }
-  @Override
-  void sayHi() {
-    System.out.println("はいはぁーーい！" + this.name + "さん、管理人ご苦労さま！！");
-  }
-}
 
 public class sample {
   public static void main(String[] args) {
-    User Rei = new User("Rei");
-    //  Rei = new User();
-    System.out.println(Rei.name);
-    Rei.sayHi();
-
-    AdminUser Fuku = new AdminUser("Fuku");
-    //  Rei = new User();
-    System.out.println(Fuku.name);
-    Fuku.sayHi();
-    Fuku.sayHello();
+    User Rei = new User("Rei", 65);
+    Rei.setScore(85);
+    Rei.setScore(-237);
+    // System.out.println(Rei.name);
+    System.out.println(Rei.getScore());
   }
 }
