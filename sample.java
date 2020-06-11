@@ -1,61 +1,65 @@
-//インターフェース　---------------------------------------------------------------------------------------
-interface Printable {
-  // 定数
-  double VERSON = 1.5;
+//Stringクラス----------------------------------------------------
+public class sample{
+  public static void main(String[] args){
+    String s = "abcdef";
+    System.out.println(s.length());
+    System.out.println(s.substring(2,5));
+    System.out.println(s.replaceAll("ab", "AB"));
 
-  // 抽象メソッド
-  void print();
+    String s1 = "abc";
+    String s2 = "abc";
+    if(s1.equals(s2)){
+      System.out.println("ばっちりやでー");
+    }
 
-  // defaultメソッド
-  public default void getInfo() {
-    System.out.println("I/F ver. " + Printable.VERSON);
-  }
 
-  // staticメソッド
-
-}
-
-class User implements Printable{
-  @Override
-  public void print(){
-    System.out.println("あなたのプロフィールをプリント中なり");
-  }
-}
-
-public class sample {
-  public static void main(String[] args) {
-    User Rei = new User();
-    Rei.print();
-    Rei.getInfo();
+    String ss1 = new String("abc");
+    String ss2 = new String("abc");
+    if(ss1 == ss2){
+      System.out.println("こっちもばっちりやでー");
+    }
   }
 }
 
-// //抽象クラス -> 具象クラス
-// ------------------------------------------------------------------------------
 
-// abstract class User {
-// public abstract void sayHi(); //抽象メソッド
-// }
 
-// class JapaneseUser extends User{
-// @Override
-// public void sayHi(){
-// System.out.println("こにゃにゃちわ");
-// }
-// }
+// //スレッド -----------------------------------------------------
+// // class MyRunnable implements Runnable{//関数型インターフェース
+// //   @Override
+// //   public void run(){
+// //     for(int i = 0;i < 500 ; i++){
+// //       System.out.print('^');
+// //     }
+// //   }
+// // }
 
-// class AmericanUser extends User{
-// @Override
-// public void sayHi(){
-// System.out.println("はろぉーえぶりにゃん");
-// }
-// }
+// public class sample {
+//   public static void main(String[] args) {
+//     // MyRunnable r = new MyRunnable();
+//     // Thread t = new Thread(r);
+//     // t.start();
+//     // ラムダ式
+//     // （引数） -> （処理）
 
-// public class sample{
-// public static void main(String[] args) {
-// AmericanUser Tom = new AmericanUser();
-// JapaneseUser Rei = new JapaneseUser();
-// Tom.sayHi();
-// Rei.sayHi();
-// }
+//     // new Thread(new Runnable(){
+//     // @Override
+//     // public void run(){
+//     // for(int i = 0;i < 500 ; i++){
+//     // System.out.print('^');
+//     // }
+//     // }
+//     // }).start(); //無名クラス
+//     // for(int i = 0;i < 500 ; i++){
+//     // System.out.print('*');
+//     // }
+//     // }
+//     new Thread(() -> {
+//       for (int i = 0; i < 500; i++) {
+//         System.out.print('^');
+//       }
+//     }).start(); // 無名クラス
+//     for (int i = 0; i < 500; i++) {
+//       System.out.print('*');
+//     }
+//   }
 // }
