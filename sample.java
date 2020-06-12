@@ -1,65 +1,38 @@
-//Stringクラス----------------------------------------------------
+import java.time.*;
+import java.time.format.DateTimeFormatter;
+
 public class sample{
-  public static void main(String[] args){
-    String s = "abcdef";
-    System.out.println(s.length());
-    System.out.println(s.substring(2,5));
-    System.out.println(s.replaceAll("ab", "AB"));
+  public static void main(String[] aegs){
+    LocalDateTime d = LocalDateTime.now();
+    // LocalDateTime d = new LocalDateTime.of(2020,1,1,10,10,10);
+    // LocalDateTime d = new LocalDateTime.parse("2016-01-01T10:10:10");
+    System.out.println(d.getYear());
+    System.out.println(d.getMonth().getValue());
+    System.out.println(d.plusMonths(2).minusDays(3));
 
-    String s1 = "abc";
-    String s2 = "abc";
-    if(s1.equals(s2)){
-      System.out.println("ばっちりやでー");
-    }
+    DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy!MM!dd!");
+    System.out.println(d.format(dtf));
 
 
-    String ss1 = new String("abc");
-    String ss2 = new String("abc");
-    if(ss1 == ss2){
-      System.out.println("こっちもばっちりやでー");
-    }
   }
 }
 
-
-
-// //スレッド -----------------------------------------------------
-// // class MyRunnable implements Runnable{//関数型インターフェース
-// //   @Override
-// //   public void run(){
-// //     for(int i = 0;i < 500 ; i++){
-// //       System.out.print('^');
-// //     }
-// //   }
-// // }
+// // StreamAPI--------------------------------------------------------------
 
 // public class sample {
 //   public static void main(String[] args) {
-//     // MyRunnable r = new MyRunnable();
-//     // Thread t = new Thread(r);
-//     // t.start();
-//     // ラムダ式
-//     // （引数） -> （処理）
 
-//     // new Thread(new Runnable(){
-//     // @Override
-//     // public void run(){
-//     // for(int i = 0;i < 500 ; i++){
-//     // System.out.print('^');
+//     List<Integer> sales = new ArrayList<>(Arrays.asList(12, 30, 22, 4, 9));
+//     // for (Integer sale : sales){
+//     //     System.out.println(sale);
 //     // }
-//     // }
-//     // }).start(); //無名クラス
-//     // for(int i = 0;i < 500 ; i++){
-//     // System.out.print('*');
-//     // }
-//     // }
-//     new Thread(() -> {
-//       for (int i = 0; i < 500; i++) {
-//         System.out.print('^');
-//       }
-//     }).start(); // 無名クラス
-//     for (int i = 0; i < 500; i++) {
-//       System.out.print('*');
-//     }
+
+//     sales
+//       .stream()
+//       //中間式
+//       .filter( e -> e % 3 == 0) //ラムダ式　引数 -> 処理
+//       .map(e -> "(" + e + ")" )
+//       //終端処理
+//       .forEach(System.out::println);
 //   }
 // }
